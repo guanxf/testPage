@@ -1,0 +1,82 @@
+/**
+ * 通用工具，编译后本身不影响css代码，按需使用
+ */
+
+.placeholder(@placeholder-color) {
+  // Firefox
+  &::-moz-placeholder {
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  &::placeholder,
+  &::-moz-placeholder,
+  &:-ms-input-placeholder, // Internet Explorer 10+
+  &::-webkit-input-placeholder { // Safari and Chrome
+    color: @placeholder-color;
+  }
+}
+
+.justifyflex() {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.centerflex() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden() {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s,
+  visibility .2s;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// 单行超出打点省略
+.line1() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 多行超出打点省略  eg. @include line(3);
+.line(@line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blockOmit(@color) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: .3rem;
+    width: .5rem;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), @color);
+  }
+}
+
+/* YuewenFont字体
+  * 使用方法
+  * .text {
+  *   font-family: YuewenFont-Regular;
+  * }
+  */
+// 如有需要再打开下方//注释
+// @font-face {
+//   font-family: 'YuewenFont-Regular';
+//   src: url('../font/YuewenFont-Regular.ttf');
+//   font-weight: normal;
+//   font-style: normal;
+// }

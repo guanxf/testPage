@@ -1,0 +1,80 @@
+/** 
+ * 默认出口文件，在页面内import
+ */
+@import "base";
+@import "normal";
+// @import "mixin";
+
+html, body {
+  height: 100vh;
+}
+
+.site-map {
+  width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+}
+.link {
+  color: #2395f1;
+  cursor: pointer;
+}
+.main {
+  display: flex;
+  height: 100%;
+}
+
+.nav {
+  flex: 1;
+
+  h1 {
+    font-size: 32px;
+  }
+}
+
+.dir {
+  h2 {
+    font-size: 24px;
+    padding-top: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+    padding: 20px 0 10px;
+  }
+
+  .menu-wrap {
+    width: 100%;
+    height: calc(100vh - 300px);
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .menu-item {
+    flex: 1;
+  }
+
+  li {
+    padding: 5px 20px;
+    cursor: pointer;
+
+    &.active {
+      color: red;
+    }
+  }
+}
+
+.iframe-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 768px;
+
+  iframe {
+    width: 375px;
+    height: 667px;
+    box-shadow: 0 0 1px rgba(0,0,0.65);
+  }
+}
+
